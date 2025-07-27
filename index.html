@@ -11,6 +11,7 @@
       color: white;
       text-align: center;
       padding-top: 100px;
+      scroll-behavior: smooth;
     }
 
     .container {
@@ -46,10 +47,6 @@
       background-color: #4a68e0;
     }
 
-    .audio-wrapper {
-      margin-top: 20px;
-    }
-
     .corner-btn {
       position: absolute;
       top: 20px;
@@ -63,6 +60,7 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       cursor: pointer;
       transition: 0.2s;
+      text-decoration: none;
     }
 
     .corner-btn:hover {
@@ -75,11 +73,6 @@
       left: 10px;
       font-size: 12px;
       color: rgba(255,255,255,0.3);
-    }
-
-    /* FRIENDS SECTION */
-    .pookies-section {
-      padding: 80px 20px 40px;
     }
 
     .friends-grid {
@@ -120,13 +113,12 @@
       margin-top: 8px;
       font-size: 0.8em;
       opacity: 0.7;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-  <!-- Top-left button -->
-  <button class="corner-btn">My Friends</button>
+  <a href="#friends" class="corner-btn">My Pookies!</a>
 
   <div class="container">
     <h1>about me</h1>
@@ -134,45 +126,36 @@
     <p>im mr auraman</p>
     <p>im cool</p>
     <p><strong>ok im cool</strong></p>
-    <p>mute</p>
 
-    <div class="audio-wrapper">
-      <audio controls>
-        <source src="lil-durk-cant-hide-it-feat-jhene-aiko.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+    <div class="footer-message">nope your too late i already died</div>
+    <div id="mute-toggle" class="footer-sub">mute</div>
+    <div class="footer-sub">0:03 - 1:30</div>
   </div>
 
-  <!-- FRIENDS SECTION -->
-  <div class="friends-section">
-    <h1>MY FRIENDS!!</h1>
-    <div class="friends-grid">
-      <div class="friend-card"><h2>muffn</h2><p>friend of 4 years and got lil aura!!</p></div>
-      <div class="friend-card"><h2>stomp</h2><p>d1 fat and no aura</p></div>
-      <div class="friend-card"><h2>vortex</h2><p>vortex and i touch each other yum</p></div>
-      <div class="friend-card"><h2>pixel</h2><p>pixel is very stupid and cool</p></div>
-      <div class="friend-card"><h2>brody</h2><p>gay</p></div>
-      </div>
-      <audio id="bg-audio" autoplay loop>
-  <source src="too-fast-lil-devo78.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  const audio = document.getElementById('bg-audio');
-  const toggle = document.querySelector('.footer-sub');
-
-  toggle.addEventListener('click', () => {
-    audio.muted = !audio.muted;
-    toggle.textContent = audio.muted ? 'mute' : 'unmute';
-  });
-</script>
-
-    <div class="footer-message">too fast</div>
-    <div class="footer-sub">unmute</div>
-    <div class="footer-sub">0:12 - 1:30</div>
+  <div id="friends" class="pookies-section">
+  <h1>MY FRIENDS!!</h1>
+  <div class="friends-grid">
+    <div class="friend-card"><h2>muffn</h2><p>friend of 4 years and got lil aura!!</p></div>
+    <div class="friend-card"><h2>stomp</h2><p>d1 fat and no aura</p></div>
+    <div class="friend-card"><h2>vortex</h2><p>vortex and i touch each other yum</p></div>
+    <div class="friend-card"><h2>pixel</h2><p>pixel is very stupid and cool</p></div>
+    <div class="friend-card"><h2>brody</h2><p>gay</p></div>
   </div>
+</div>
+    <audio id="bg-audio" autoplay loop>
+    <source src="too-fast-lil-devo78.mp3" type="audio/mpeg">
+  </audio>
 
-  <div class="made-by">Made By batl (vercel.vercel)</div>
+  <script>
+    const audio = document.getElementById('bg-audio');
+    const muteToggle = document.getElementById('mute-toggle');
+
+    muteToggle.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      muteToggle.textContent = audio.muted ? 'unmute' : 'mute';
+    });
+  </script>
+
+  <div class="made-by">Made By batl</div>
 </body>
 </html>
