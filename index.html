@@ -8,6 +8,7 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -16,6 +17,7 @@
     .fade-in {
       animation: fadeIn 1.2s ease forwards;
     }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -50,28 +52,6 @@
       font-weight: bold;
     }
 
-    p {
-      margin: 10px 0;
-    }
-
-    .tag-btn {
-      display: block;
-      margin: 10px auto;
-      padding: 10px 20px;
-      background-color: #5d79ff;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .tag-btn:hover {
-      background-color: #4a68e0;
-    }
-
     .corner-btn {
       position: absolute;
       top: 20px;
@@ -87,7 +67,8 @@
       transition: 0.2s;
     }
 
-    .corner-btn:hover {
+    .corner-btn:hover,
+    .back-btn:hover {
       background-color: #f0f0ff;
     }
 
@@ -104,10 +85,6 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       cursor: pointer;
       transition: 0.2s;
-    }
-
-    .back-btn:hover {
-      background-color: #f0f0ff;
     }
 
     .made-by {
@@ -137,10 +114,10 @@
       opacity: 0;
       animation: cardFade 0.6s ease forwards;
       animation-delay: var(--delay);
-      animation: cardFade 0.6s ease forwards;
-      animation-delay: var(--delay);}
+    }
 
-    $1
+    .friend-card:hover {
+      transform: scale(1.05);
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
     }
 
@@ -170,21 +147,23 @@
   </style>
 </head>
 <body>
+  <!-- Splash screen -->
   <div id="start-screen" class="screen visible">
     <div class="enter-btn" onclick="showScreen('main-screen')">click to enter..</div>
   </div>
 
+  <!-- Main screen -->
   <div id="main-screen" class="screen">
     <button class="corner-btn" onclick="showScreen('friends-screen')">My friends!</button>
     <div class="container">
       <h1 class="fade-in">hi im batl<br>im mr auraman<br>im cool<br><strong>ok im cool</strong></h1>
-      
       <div class="invite">
         <a href="https://discord.gg/xhREgTJRwM" target="_blank">join my discord</a>
       </div>
     </div>
   </div>
 
+  <!-- Friends screen -->
   <div id="friends-screen" class="screen">
     <button class="back-btn" onclick="showScreen('main-screen')">Back</button>
     <h1>MY FRIENDS!!</h1>
@@ -195,31 +174,30 @@
       <div class="friend-card" style="--delay: 0.3s"><h2>pixel</h2><p>pixel is very stupid and cool</p></div>
       <div class="friend-card" style="--delay: 0.4s"><h2>brody</h2><p>gay</p></div>
     </div>
-      <div class="friend-card"><h2>stomp</h2><p>d1 fat and no aura</p></div>
-      <div class="friend-card"><h2>vortex</h2><p>vortex and i touch each other yum</p></div>
-      <div class="friend-card"><h2>pixel</h2><p>pixel is very stupid and cool</p></div>
-      <div class="friend-card"><h2>brody</h2><p>gay</p></div>
-    </div>
   </div>
 
   <div class="made-by">Made By batl</div>
 
   <script>
     function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(screen => {
-    screen.classList.remove('visible');
-  });
-  document.getElementById('start-screen').classList.add('visible');
-  setTimeout(() => {
-    document.querySelectorAll('.screen').forEach(screen => {
-      screen.classList.remove('visible');
-    });
-    document.getElementById(id).classList.add('visible');
-  }, 800);
-});
-      document.getElementById(id).classList.add('visible');
+      const fromStart = document.getElementById('start-screen').classList.contains('visible');
+
+      document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('visible');
+      });
+
+      if (fromStart) {
+        document.getElementById(id).classList.add('visible');
+      } else {
+        document.getElementById('start-screen').classList.add('visible');
+        setTimeout(() => {
+          document.querySelectorAll('.screen').forEach(screen => {
+            screen.classList.remove('visible');
+          });
+          document.getElementById(id).classList.add('visible');
+        }, 800);
+      }
     }
   </script>
 </body>
 </html>
-
