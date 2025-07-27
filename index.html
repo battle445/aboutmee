@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>About Me</title>
   <style>
+    @keyframes cardFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -128,12 +132,16 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 16px;
       padding: 20px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-      transition: transform 0.2s ease;
-    }
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: cardFade 0.6s ease forwards;
+      animation-delay: var(--delay);
+      animation: cardFade 0.6s ease forwards;
+      animation-delay: var(--delay);}
 
-    .friend-card:hover {
-      transform: scale(1.05);
+    $1
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
     }
 
     .friend-card h2 {
@@ -167,7 +175,7 @@
   </div>
 
   <div id="main-screen" class="screen">
-    <button class="corner-btn" onclick="showScreen('friends-screen')">My Pookies!</button>
+    <button class="corner-btn" onclick="showScreen('friends-screen')">My friends!</button>
     <div class="container">
       <h1 class="fade-in">hi im batl<br>im mr auraman<br>im cool<br><strong>ok im cool</strong></h1>
       
@@ -181,7 +189,12 @@
     <button class="back-btn" onclick="showScreen('main-screen')">Back</button>
     <h1>MY FRIENDS!!</h1>
     <div class="friends-grid">
-      <div class="friend-card"><h2>muffn</h2><p>friend of 4 years and got lil aura!!</p></div>
+      <div class="friend-card" style="--delay: 0s"><h2>muffn</h2><p>friend of 4 years and got lil aura!!</p></div>
+      <div class="friend-card" style="--delay: 0.1s"><h2>stomp</h2><p>d1 fat and no aura</p></div>
+      <div class="friend-card" style="--delay: 0.2s"><h2>vortex</h2><p>vortex and i touch each other yum</p></div>
+      <div class="friend-card" style="--delay: 0.3s"><h2>pixel</h2><p>pixel is very stupid and cool</p></div>
+      <div class="friend-card" style="--delay: 0.4s"><h2>brody</h2><p>gay</p></div>
+    </div>
       <div class="friend-card"><h2>stomp</h2><p>d1 fat and no aura</p></div>
       <div class="friend-card"><h2>vortex</h2><p>vortex and i touch each other yum</p></div>
       <div class="friend-card"><h2>pixel</h2><p>pixel is very stupid and cool</p></div>
@@ -193,11 +206,20 @@
 
   <script>
     function showScreen(id) {
-      document.querySelectorAll('.screen').forEach(screen => {
-        screen.classList.remove('visible');
-      });
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('visible');
+  });
+  document.getElementById('start-screen').classList.add('visible');
+  setTimeout(() => {
+    document.querySelectorAll('.screen').forEach(screen => {
+      screen.classList.remove('visible');
+    });
+    document.getElementById(id).classList.add('visible');
+  }, 800);
+});
       document.getElementById(id).classList.add('visible');
     }
   </script>
 </body>
 </html>
+
