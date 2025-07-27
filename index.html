@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #d3d0f0, #9e95e0);
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .tag-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #5d79ff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .tag-btn:hover {
+      background-color: #4a68e0;
+    }
+
+    .audio-wrapper {
+      margin-top: 20px;
+    }
+
+    .corner-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 8px 16px;
+      font-weight: bold;
+      background-color: white;
+      color: #3f51b5;
+      border: 2px solid #3f51b5;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .corner-btn:hover {
+      background-color: #f0f0ff;
+    }
+
+    .made-by {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* FRIENDS SECTION */
+    .pookies-section {
+      padding: 80px 20px 40px;
+    }
+
+    .friends-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+
+    .friend-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .friend-card:hover {
+      transform: scale(1.05);
+    }
+
+    .friend-card h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .footer-message {
+      margin-top: 40px;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .footer-sub {
+      margin-top: 8px;
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-left button -->
+  <button class="corner-btn">My Friends</button>
+
+  <div class="container">
+    <h1>about me</h1>
+    <p>hi im batl</p>
+    <p>im mr auraman</p>
+    <p>im cool</p>
+    <p><strong>ok im cool</strong></p>
+    <p>mute</p>
+
+    <div class="audio-wrapper">
+      <audio controls>
+        <source src="lil-durk-cant-hide-it-feat-jhene-aiko.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  <!-- FRIENDS SECTION -->
+  <div class="friends-section">
+    <h1>MY FRIENDS!!</h1>
+    <div class="friends-grid">
+      <div class="friend-card"><h2>muffn</h2><p>friend of 4 years and got lil aura!!</p></div>
+      <div class="friend-card"><h2>stomp</h2><p>d1 fat and no aura</p></div>
+      <div class="friend-card"><h2>vortex</h2><p>vortex and i touch each other yum</p></div>
+      <div class="friend-card"><h2>pixel</h2><p>pixel is very stupid and cool</p></div>
+      <div class="friend-card"><h2>brody</h2><p>gay</p></div>
+      </div>
+      <audio id="bg-audio" autoplay loop>
+  <source src="too-fast-lil-devo78.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const audio = document.getElementById('bg-audio');
+  const toggle = document.querySelector('.footer-sub');
+
+  toggle.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    toggle.textContent = audio.muted ? 'mute' : 'unmute';
+  });
+</script>
+
+    <div class="footer-message">too fast</div>
+    <div class="footer-sub">unmute</div>
+    <div class="footer-sub">0:12 - 1:30</div>
+  </div>
+
+  <div class="made-by">Made By batl (vercel.vercel)</div>
+</body>
+</html>
