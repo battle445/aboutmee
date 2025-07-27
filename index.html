@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <title>About Me</title>
   <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 1.2s ease forwards;
+    }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -29,7 +37,7 @@
     .container {
       max-width: 600px;
       margin: auto;
-      padding-top: 100px;
+      padding-top: 40px;
     }
 
     h1 {
@@ -140,6 +148,17 @@
       cursor: pointer;
       text-shadow: 0 0 10px white;
     }
+
+    .invite {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .invite a {
+      color: white;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -148,13 +167,13 @@
   </div>
 
   <div id="main-screen" class="screen">
-    <button class="corner-btn" onclick="showScreen('friends-screen')">My friends!</button>
+    <button class="corner-btn" onclick="showScreen('friends-screen')">My Pookies!</button>
     <div class="container">
-      <h1>about me</h1>
-      <p>hi im batl</p>
-      <p>im mr auraman</p>
-      <p>im cool</p>
-      <p><strong>ok im cool</strong></p>
+      <h1 class="fade-in">hi im batl<br>im mr auraman<br>im cool<br><strong>ok im cool</strong></h1>
+      
+      <div class="invite">
+        <a href="https://discord.gg/xhREgTJRwM" target="_blank">join my discord</a>
+      </div>
     </div>
   </div>
 
